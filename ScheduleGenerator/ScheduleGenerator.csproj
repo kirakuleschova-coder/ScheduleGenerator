@@ -54,7 +54,6 @@
     </Compile>
     <Compile Include="Model\Discipline.cs" />
     <Compile Include="Model\Group.cs" />
-    <Compile Include="Model\ScheduleGenerator.cs" />
     <Compile Include="Model\Specialty.cs" />
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="Model\TimeSlot.cs" />
