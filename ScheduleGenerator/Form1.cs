@@ -20,7 +20,6 @@ namespace ScheduleGenerator
             InitializeComponent();
 
             // При запуске сразу добавляем тестовые временные слоты (расписание звонков)
-            // Это нужно, чтобы программа могла работать без настройки
             generator.AddTimeSlot(new TimeSlot
             {
                 StartTime = new TimeSpan(9, 0, 0),      // 09:00
@@ -48,6 +47,17 @@ namespace ScheduleGenerator
                 EndTime = new TimeSpan(16, 15, 0),      // 16:15
                 BreakDuration = new TimeSpan(0, 0, 0)   // без перемены
             });
+
+            // ЗАПОЛНЯЕМ cmbSpecialty специальностями
+            cmbSpecialty.Items.Add("09.02.07 Информационные системы и программирование");
+            cmbSpecialty.Items.Add("10.02.01 Информационная безопасность");
+            cmbSpecialty.Items.Add("11.02.01 Радиотехнические комплексы");
+
+            // Выбираем первую специальность
+            if (cmbSpecialty.Items.Count > 0)
+            {
+                cmbSpecialty.SelectedIndex = 0;
+            }
 
             // Обновляем статус
             lblStatus.Text = "Программа готова к работе. Добавьте группу и загрузите данные.";
@@ -147,6 +157,9 @@ namespace ScheduleGenerator
                     {
                         string[] lines = File.ReadAllLines(ofd.FileName, System.Text.Encoding.UTF8);
 
+                        // Очищаем ComboBox перед заполнением
+                        cmbTeacher.Items.Clear();
+
                         foreach (string line in lines)
                         {
                             if (string.IsNullOrWhiteSpace(line)) continue;
@@ -169,12 +182,24 @@ namespace ScheduleGenerator
 
                                     // Добавляем в генератор
                                     generator.AddTeacher(teacher);
+
+                                    // Добавляем преподавателя в ComboBox (если его там ещё нет)
+                                    if (!cmbTeacher.Items.Contains(fio))
+                                    {
+                                        cmbTeacher.Items.Add(fio);
+                                    }
                                 }
                                 catch (Exception ex)
                                 {
                                     MessageBox.Show($"Ошибка в строке: {line}\n{ex.Message}", "Ошибка формата");
                                 }
                             }
+                        }
+
+                        // Выбираем первого преподавателя, если список не пуст
+                        if (cmbTeacher.Items.Count > 0)
+                        {
+                            cmbTeacher.SelectedIndex = 0;
                         }
 
                         lblStatus.Text = "Преподаватели загружены!";
@@ -278,8 +303,11 @@ namespace ScheduleGenerator
             });
 
             // Добавляем группу в ComboBox для выбора
-            cmbGroup.Items.Add("П-30");
-            cmbGroup.SelectedIndex = 0;
+            if (!cmbGroup.Items.Contains("П-30"))
+            {
+                cmbGroup.Items.Add("П-30");
+            }
+            cmbGroup.SelectedItem = "П-30";
 
             lblStatus.Text = "Группа П-30 добавлена!";
             MessageBox.Show("Добавлена тестовая группа П-30 (2 курс, Информационные системы)",
