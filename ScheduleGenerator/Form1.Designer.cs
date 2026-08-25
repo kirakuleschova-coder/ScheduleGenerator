@@ -83,6 +83,7 @@
             this.btnLoadDisciplines.TabIndex = 4;
             this.btnLoadDisciplines.Text = "Загрузить план";
             this.btnLoadDisciplines.UseVisualStyleBackColor = true;
+            this.btnLoadDisciplines.Click += new System.EventHandler(this.btnLoadDisciplines_Click);
             // 
             // btnLoadTeachers
             // 
@@ -92,42 +93,47 @@
             this.btnLoadTeachers.TabIndex = 5;
             this.btnLoadTeachers.Text = "Загрузить препод.";
             this.btnLoadTeachers.UseVisualStyleBackColor = true;
+            this.btnLoadTeachers.Click += new System.EventHandler(this.btnLoadTeachers_Click);
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(688, 77);
+            this.btnGenerate.Location = new System.Drawing.Point(264, 72);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(100, 24);
+            this.btnGenerate.Size = new System.Drawing.Size(96, 29);
             this.btnGenerate.TabIndex = 6;
             this.btnGenerate.Text = "Сгенерировать";
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // btnSaveWord
             // 
-            this.btnSaveWord.Location = new System.Drawing.Point(275, 74);
+            this.btnSaveWord.Location = new System.Drawing.Point(382, 74);
             this.btnSaveWord.Name = "btnSaveWord";
             this.btnSaveWord.Size = new System.Drawing.Size(135, 27);
             this.btnSaveWord.TabIndex = 7;
             this.btnSaveWord.Text = "Сохранить в Word";
             this.btnSaveWord.UseVisualStyleBackColor = true;
+            this.btnSaveWord.Click += new System.EventHandler(this.btnSaveWord_Click);
             // 
             // btnOpenTeacherEditor
             // 
-            this.btnOpenTeacherEditor.Location = new System.Drawing.Point(424, 74);
+            this.btnOpenTeacherEditor.Location = new System.Drawing.Point(535, 74);
             this.btnOpenTeacherEditor.Name = "btnOpenTeacherEditor";
             this.btnOpenTeacherEditor.Size = new System.Drawing.Size(112, 27);
             this.btnOpenTeacherEditor.TabIndex = 8;
             this.btnOpenTeacherEditor.Text = "редактор препод.";
             this.btnOpenTeacherEditor.UseVisualStyleBackColor = true;
+            this.btnOpenTeacherEditor.Click += new System.EventHandler(this.btnOpenTeacherEditor_Click);
             // 
             // btnOpenGroupEditor
             // 
-            this.btnOpenGroupEditor.Location = new System.Drawing.Point(555, 77);
+            this.btnOpenGroupEditor.Location = new System.Drawing.Point(665, 77);
             this.btnOpenGroupEditor.Name = "btnOpenGroupEditor";
             this.btnOpenGroupEditor.Size = new System.Drawing.Size(110, 24);
             this.btnOpenGroupEditor.TabIndex = 9;
             this.btnOpenGroupEditor.Text = "Редактор групп";
             this.btnOpenGroupEditor.UseVisualStyleBackColor = true;
+            this.btnOpenGroupEditor.Click += new System.EventHandler(this.btnOpenGroupEditor_Click);
             // 
             // dgvSchedule
             // 
