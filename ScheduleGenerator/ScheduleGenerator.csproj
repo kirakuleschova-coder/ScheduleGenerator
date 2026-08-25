@@ -55,6 +55,7 @@
     <Compile Include="Model\Discipline.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\Specialty.cs" />
+    <Compile Include="Model\Teacher.cs" />
     <Compile Include="Model\TimeSlot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
